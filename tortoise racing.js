@@ -8,11 +8,10 @@ function race(v1, v2, g) {
   if(v1 >= v2){
     return null
   }
-  let   hoursPassed = g/(v2-v1)
-  let   secondsPassed = hoursPassed*60*60
+  let hoursPassed = g/(v2-v1);
+  let secondsPassed = hoursPassed*60*60;
 
-
-  let finalTime = [0,0,0];
+  let finalTime = [0,0,0];s
   if(secondsPassed >= 60){
     finalTime[2] = Math.floor(secondsPassed%60)
     finalTime[1] += Math.floor(secondsPassed/60)
