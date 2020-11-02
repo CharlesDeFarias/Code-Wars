@@ -1,8 +1,6 @@
 /**
  *https://www.codewars.com/kata/55e2adece53b4cdcb900006c/train/javascript
  *
- * @author Charles De Farias <cd632m@wayfair.com>
- * @copyright 2020 Wayfair LLC - All rights reserved
  */
 function race(v1, v2, g) {
   if(v1 >= v2){

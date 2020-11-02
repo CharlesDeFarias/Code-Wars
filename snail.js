@@ -1,8 +1,6 @@
 /**
  *https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/javascript
  *
- * @author Charles De Farias <cd632m@wayfair.com>
- * @copyright 2020 Wayfair LLC - All rights reserved
  */
 
 snail = function(array) {

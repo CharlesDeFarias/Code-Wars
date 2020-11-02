@@ -1,8 +1,6 @@
 /**
  * https://www.codewars.com/kata/5aba8546379d20b9970001e4/train/javascript
  *
- * @author Charles De Farias <cd632m@wayfair.com>
- * @copyright 2020 Wayfair LLC - All rights reserved
  */
 
 ///NOTE, this can be refactored a lot
