@@ -6,39 +6,63 @@
  */
 
 snail = function(array) {
-  let answer=[];
+  let answer= [];
   let isRow = true;
   let isReverse = false;
   let goingDown = true;
+  let lastIndex = 0;
+  let lastRow= 0;
+  let nextDirection = "forward";
 
   const numberOfElements = array.length*array.length;
-
-  while (answer.length < numberOfElements){
-    if(isRow){
-      const wholeRow = array.splice(0,1);
-      if(!isReverse){
-        answer.push(wholeRow);
-      }else{
-        answer.push(wholeRow.reverse())
-      }
-      isRow = false;
-      isReverse = true;
-    }else{
-      let column = [];
-      for (let j=array.length-1; j>=0; j--) {
-        const row = array[j];
-        const index = goingDown ? (row.length - 1) : 0;
-        column.push(row.splice(index,1));
-      }
-      if(goingDown){
-        answer.push(column.reverse());
-        goingDown = false;
-      }else{
-        answer.push(column)
-        goingDown = true;
-      }
-      isRow = true;
+  const replacementRow = ["x", "x", "x"];
+  const replacementElement = "x";
+  const changeNextDirection = () => {
+    switch (nextDirection) {
+      case "forward":
+        nextDirection = "down"
+        break
+      case "down":
+        nextDirection = "backward"
+        break
+      case "backward":
+        nextDirection = "up"
+        break
+      case "up":
+        nextDirection = "forward"
+        break
     }
+    isRow = !isRow;
+  };
+
+  for(let i=0; i<numberOfElements; i++) {
+    let goingForward = nextDirection === "forward"
+    array.forEach((row, index) => {
+      let isEmptyRow = row === replacementRow;
+      if(isRow && !isEmptyRow) {
+        let wholeRow =
+          array.splice(0, 1, ...replacementRow);
+        if(goingForward) {
+          answer.push(wholeRow);
+          lastIndex = row.length-1;
+        }else{
+          answer.push(wholeRow.reverse())
+          lastIndex = 0;
+          lastRow = index;
+        }
+        changeNextDirection();
+      }else if(!isRow){
+          let targetElement =
+            row.splice(lastIndex,1,"x");
+          if(targetElement !== replacementElement){
+            answer.push(targetElement);
+          }
+          if(index === array.length-1){
+            changeNextDirection();
+          }
+      }
+    });
   }
   return answer
+
 }
