@@ -35,7 +35,7 @@ snail = function(array) {
 
   for(let i=0; i<numberOfElements; i++) {
     let goingForward = nextDirection === "forward"
-    array.forEach((row, index) => {
+    array.map((row, index) => {
       let isEmptyRow = row === replacementRow;
       if(isRow && !isEmptyRow) {
         let wholeRow =
