@@ -1,5 +1,7 @@
 //https://www.codewars.com/kata/52bc74d4ac05d0945d00054e/train/javascript
 //Write a function named first_non_repeating_letter that takes a string input, and returns the first character that is not repeated anywhere in the string.
+//Learned: Splice returns an array, which was giving me problems since I was treating it like a string.
+//todo: learn how to do this without using char[0]
 function firstNonRepeatingLetter(s) {
   // return first character that is non-repeating
   // upper and lower case are the same letter
