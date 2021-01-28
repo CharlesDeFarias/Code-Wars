@@ -29,5 +29,5 @@ function topThreeWords(text) {
   wordCounts.sort(function(a, b) {
     return b[1] - a[1];
   });
-  
+
 }
