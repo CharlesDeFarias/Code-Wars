@@ -1,22 +1,14 @@
 //https://www.codewars.com/kata/586560a639c5ab3a260000f3/train/javascript
 function rotate(str){
-  //code here
   let strArray = str.split("");
 
   let answer = strArray.reduce((acc, curr, index)=>{
-    if(index === 0){
-      let element = []
-      element.push(curr)
-      element.unshift(curr);
-      for(let i=1; i<=index+1;i++){
-        element.push(strArray[i])
-      }
-
-      acc.push(element.join(""));
-    }else{
-    }
+    let element = []
+    element.push(strArray.slice(index).join(""))
+    element.push(strArray.slice(0, index-strArray.length).join(""))
+    acc.push(element.join(""));
     return acc
   }, []);
-  console.log(answer)
 
+  return answer
 }
